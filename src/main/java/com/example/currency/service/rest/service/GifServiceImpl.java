@@ -1,11 +1,10 @@
 package com.example.currency.service.rest.service;
 
 import com.example.currency.service.rest.client.GifClient;
+import com.example.currency.service.rest.model.GifModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -17,7 +16,7 @@ public class GifServiceImpl implements GifService {
     private String apiKey;
 
     @Override
-    public Map<String, Object> getGif(String tag) {
+    public GifModel.Root getGif(String tag) {
         return gifClient.getGif(apiKey, tag);
     }
 }

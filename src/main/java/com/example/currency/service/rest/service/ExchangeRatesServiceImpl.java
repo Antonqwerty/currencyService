@@ -24,7 +24,7 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
         ExchangeRatesModel historicalRate = exchangeRatesClient.getHistoricalRates(yesterday, appId);
         double exchangeRate = exchangeLatestRate.getRates().get(currency);
         double historical = historicalRate.getRates().get(currency);
-        return exchangeRate > historical;
+        return Double.compare(exchangeRate, historical) > 0;
     }
 
 }
